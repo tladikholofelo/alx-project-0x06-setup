@@ -2,7 +2,10 @@ import { useSelector } from "react-redux";
 import { RootState, useAppDispatch, increment, decrement } from "@/store/store";
 
 const CounterApp: React.FC = () => {
+  // Access the current count from Redux store
   const count = useSelector((state: RootState) => state.counter.value);
+  
+  // Get the dispatch function with proper typing
   const dispatch = useAppDispatch();
 
   return (
@@ -23,13 +26,13 @@ const CounterApp: React.FC = () => {
       {/* Buttons */}
       <div className="flex space-x-4">
         <button
-          onClick={() => dispatch(increment())}
+          onClick={() => dispatch(increment())}  // Increment the count using dispatch
           className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Increment 🚀
         </button>
         <button
-          onClick={() => dispatch(decrement())}
+          onClick={() => dispatch(decrement())}  // Decrement the count using dispatch
           className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Decrement 👎
